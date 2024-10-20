@@ -1,5 +1,7 @@
-package com.codelab.basiclayouts.ui.element
+package com.codelab.basiclayouts.ui.home.element
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
@@ -16,16 +18,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.codelab.basiclayouts.R
 
 @Composable
-fun AlignYourBodyElement(modifier: Modifier = Modifier) {
+fun AlignYourBodyElement(
+    @DrawableRes imageId: Int,
+    @StringRes stringId: Int,
+    modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
         Image(
-            painter = painterResource(id = R.drawable.ab1_inversions),
+            painter = painterResource(id = imageId),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = modifier
@@ -33,7 +37,7 @@ fun AlignYourBodyElement(modifier: Modifier = Modifier) {
                 .clip(CircleShape)
             )
         Text(
-            text = stringResource(id = R.string.ab1_inversions),
+            text = stringResource(id = stringId),
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.paddingFromBaseline(top = 24.dp, bottom = 8.dp)
             )
@@ -45,7 +49,7 @@ fun AlignYourBodyElement(modifier: Modifier = Modifier) {
 private fun AlignYourBodyElementPreview() {
     MaterialTheme {
         Surface {
-        AlignYourBodyElement()
+
         }
     }
 }
